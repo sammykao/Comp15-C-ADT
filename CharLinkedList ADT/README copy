@@ -1,0 +1,138 @@
+/******************************************
+* HW2: CharLinkedList
+* Comp 15 Spring 2023
+* README
+* Author: Sammy Kao skao01
+* Purpose: Implement ADT CHARLINKEDLIST
+********************************************
+Program Purpose:
+---------------
+The purpose of this program is to implement an ADT 
+which is an list of chars, which includes a wide 
+variety of member functions associated with it.
+
+Compile/run:
+-----------
+
+Compile and Run using the command make.
+It will create an executable file 
+named "timer". To compile the charlinkedlist files
+seperately to non executable files, run 
+clang++ -Wall -Wextra -c CharArrayList.cpp
+
+
+Acknowledgments:
+---------------
+
+No helped recieved from anybody
+
+Files:
+-----
+
+CharLinkedList.h: Interface for an ADT of List of Chars
+
+CharLinkedList.cpp: Implementation of CharLinkedList Class.
+    The default constructor for this class initializes an
+    empty charlinkedlist. The next constructor 
+    takes in a single char and initializes a CharLinkedList size 1
+    The third constructor takes in an array of chars 
+    and initializes a CharLinkedList
+    of that size, as well as all the same elements
+    The copy constructor takes in a different 
+    CharLinkedList object and creates a 
+    deep copy of that instance
+    The overload operator does the same except
+    assumes a the CharLinkedList has been created
+unit_tests.h: A unit testing file for the
+    CharArrayList Class. Runs in conjunction with the 
+    unit_test framework to allow for testing of 
+    individual functions.
+
+Makefile: File to build the program.
+Timer_main.cpp: 
+Main function containng file to run and interact with the CharLinkedList methods
+
+
+Data Structures:
+---------------
+
+    This main data structure of this lab is an CharLinkedList, 
+    which is a doubly linked char list. Each CharLinkedList contains 
+    a front and back pointer which points to each node struct. Every node
+    struct points to the one ahead and behind of it.
+    This ADT is faster than a CharArrayList
+    for running most methods. Removal and insertion is easier
+    but the drawback is retrieval because each element is not 
+    indexed as opposed to a CharArrayList. It also has quite
+    a few methods which allow the expansion, removal, insertion, 
+    deletion, or memory usange shrinkage of elements from 
+    or into the CharLinkedList. 
+
+
+Testing:
+-------
+    Files were testing using makefile and unit_tests.h. When unit 
+    test is run, the testing functions in Unit_tests.h run. 
+    For each method in the ADT class, there is multiple functions 
+    testing the method. The tests range from basic functionality to 
+    multiple calls to detecting if some of the 
+    methods do their job correctly to catch errors.
+
+Hours: 
+
+-------
+
+    Hours worked: 10 hours
+
+
+TimerMainInfo:
+
+-------
+
+    INSERTION OPERATION                   Time (nanoseconds)
+    --------------------------------------------------
+    pushAtBack 100 times                    528332                         
+    pushAtFront 100 times                  1315532           
+    insertAt middle of list 100 times     35436146 
+
+
+    REMOVAL OPERATION                      Time (nanoseconds)
+    -------------------------------------------------------
+    popFromBack 100 times                    732643   
+    popFromFront 100 times                 885861     
+    removeAt middle of list 100 times      3353988                
+
+
+    ACCESS OPERATION                         Time (nanoseconds)
+    ----------------------------------------------------
+    call last() 100 times                       312818    
+    call first() 100 times                       323097            
+    call elementAt() for middle of list 100 times  16404186             
+
+ The results of time for each operation are unsurprising. 
+It is completely understandable to see the differences 
+for each method. There were really no extreme differences for
+each category of method, only the location.
+Since the list was doubly linked, any action performed near front
+or back was relatively quicker. The front and back pointers
+helped tremendously. The actions geared towards the middle of the
+list obviously took longer because it had to jump from node to node
+till it eventually got to the middle.
+
+
+1.) The insertion and removal methods for the CharLinkedList class at 
+at the front and back were the easiest to implement since all you need
+to do is access the front and back pointers and update the values. In the 
+ArrayList, if you removed or inserted something at the front, you would need
+to update all the values and shift them
+
+2.) The hardest methods for the CharLinkedList class were definitely
+the middle functions. You had to keep track of the order, and the position
+where the count stopped at depended on whatever function was being implemented
+(I.E. Removal vs insertion)
+
+3.) The switch from a chararraylist to charlinkedlist would be very easy. 
+All they would need to do is create a function that takes all the elements
+of the charlinkedlist and put them in an array. Then they can call on the 
+array construcot of CharLinkedLists. There would be relatively no changes in 
+use, in fact, things would become easier. 

@@ -1,0 +1,125 @@
+/******************************************
+* HW1: CharArrayList
+* Comp 15 Spring 2021 
+* README
+* Author: Sammy Kao skao01
+* Purpose: Implement ADT CharArrayList
+********************************************
+Program Purpose:
+---------------
+The purpose of this program is to implement an ADT 
+which is an list of chars, which includes a wide 
+variety of member functions associated with it.
+
+Compile/run:
+-----------
+
+Compile and Run using the command "unit_test". To 
+compile the chararray list files
+seperately to non executable files, run 
+clang++ -Wall -Wextra -c CharArrayList.cpp
+
+
+Acknowledgments:
+---------------
+
+No helped recieved from anybody
+
+Files:
+-----
+
+CharArrayList.h: Interface for an ADT CharArrayList Class.
+
+ArrayList.cpp: Implementation of CharArrayList Class.
+    The default constructor for this class initializes a 
+    List of chars to a size of
+    0, and a capacity of 0. 
+    The next constructor takes in a single char and i
+    nitializes a CharArrayList of 
+    0 size, and 0 capacity.
+    The third constructor takes in an array of chars 
+    and initializes a CharArrayList
+    of that size and capacity, as well as all t
+    he same elements
+    The copy constructor takes in a different 
+    CharArrayList class and creates a 
+    deep copy of that instance
+    The overload operator does the same except
+     assumes sufficient heap memory has been
+    allocated to copy
+unit_tests.h: A unit testing file for the
+    CharArrayList Class. Runs in conjunction with the 
+    unit_test framework to allow for testing of 
+    individual functions.
+
+Makefile: File to build the program.
+Timer_main.cpp: 
+Main function containng file to run and interact with the CharArrayList methods
+
+
+Data Structures:
+---------------
+
+    This main data structure of this lab is an CharArrayList, 
+    which is a dynamically expanding array of chars. If the 
+    number of items is ever equal to the capacity, the
+    array will automatically expand, allowing for an arbitrary number of 
+    elements to be inserted into the ArrayList. It also has quite
+    a few methods which allow the expansion, removal, insertion, 
+    deletion, or memory usange shrinkage of elements from 
+    or into the CharArrayList.
+
+
+Testing:
+-------
+    Files were testing using makefile and unit_tests.h. When unit 
+    test is run, the testing functions in Unit_tests.h run. 
+    For each method in the ADT class, there is multiple functions 
+    testing the method. The tests range from basic functionality to
+    detecting if some of the methods do their job correctly to catch errors.
+
+Hours: 
+
+-------
+
+    Hours worked: 10 hours
+
+
+TimerMainInfo:
+
+-------
+1. 
+    INSERTION OPERATION                   Time (nanoseconds)
+    --------------------------------------------------
+    pushAtBack 100 times                    586               
+    insertAt middle of list 100 times     1568173           
+    pushAtFront 100 times                  2584649           
+
+
+
+    REMOVAL OPERATION                      Time (nanoseconds)
+    -------------------------------------------------------
+    popFromBack 100 times                    652   
+    removeAt middle of list 100 times       1738434     
+    popFromFront 100 times                 3353988                
+    
+
+
+    ACCESS OPERATION                         Time (nanoseconds)
+    ----------------------------------------------------
+    call last() 100 times                       561    
+    call first() 100 times                       571            
+    call elementAt() for middle of list 100 times  60767             
+
+2. The results of time for each operation are unsurprising. 
+It is completely understandable to see the differences 
+for each method. The quickest methods were the access 
+operations since the functions were simply returning values.
+Last() and First() differed from ElementAt() since these 
+functions did not base off user input, rather ADT size. 
+Insertion and Removal where about relatively the same. 
+The reason why inserting or removing from the beginning
+of the CharArrayList took longer, was becuase the program 
+needs to shift the whole CharArrayList from the front 
+all the way to the back rather than from the 
+middle or back to the back. 
